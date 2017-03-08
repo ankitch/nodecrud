@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .contain {
             margin-top: 40px;
@@ -17,7 +18,7 @@
 
 <body>
     <div class="container contain">
-        <form action="/record" method="POST">
+        <form id="form"action="/record" method="POST" onsubmit="return validate()">
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-5">
@@ -27,12 +28,12 @@
             <div class="form-group row">
                 <label name="telephone" for="telephone" class="col-sm-2 col-form-label">Phone</label>
                 <div class="col-sm-5">
-                    <input name="telephone" type="text" class="form-control" id="telephone" placeholder="Phone">
+                    <input name="telephone" type="number" class="form-control" id="telephone" placeholder="Phone">
                 </div>
             </div>
             <fieldset class="form-group row">
                 <legend class="col-form-legend col-sm-2">Gender</legend>
-                <div class="col-sm-10">
+                <div class="col-sm-10 radios">
                     <div class="form-check-inline ">
                         <label class="form-check-label">
           <input class="form-check-input" type="radio" name="gridRadios" id="male" value="male" checked>
@@ -53,21 +54,23 @@
                     </div>
                 </div>
             </fieldset>
-
             <div class="form-group row">
-                <div class="offset-sm-4 col-sm-10">
+                <div id="submit" class="offset-sm-6 col-sm-11">
                     <button type="submit" class="btn btn-primary">Enter</button>
                 </div>
             </div>
         </form>
-    </div>
-    <table class="table">
-      <%include table.ejs %>
-    </table>
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <table class="table col-sm-5">
+            <%include table.ejs %>
+        </table>
+        <div class="modal fade" id="mymodal">
+            <%include  modal.ejs %>
+        </div>
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script src="form.js"></script>
 </body>
 
 </html>

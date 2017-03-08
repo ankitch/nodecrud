@@ -1,19 +1,32 @@
-
-  <thead>
+<thead>
     <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Phone no</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
+        <th>#</th>
+        <th>Name</th>
+        <th>Phone no</th>
+        <th>Gender</th>
+        <th>Edit</th>
+        <th>Delete</th </tr>
+</thead>
+<tbody>
     <% for(var i=0; i<record.length; i++){ %>
-      <tr>
-        <th scope="row"><%=i%></th>
-        <td><%=record[i].name%></td>
-        <td><%=record[i].telephone%></td>
-        <td><%=record[i].gridRadios%></td>
-      </tr>
-    <%}%>
-  </tbody>
+        <tr  data-id="<%=record[i]._id%>">
+            <th scope="row">
+                <%=i+1%>
+            </th>
+            <td>
+                <%=record[i].name%>
+            </td>
+            <td>
+                <%=record[i].telephone%>
+            </td>
+            <td>
+                <%=record[i].gridRadios%>
+
+
+            </td>
+            <td> <button  data-event = "update" action="/record" method="PUT" type="button" data-toggle="modal" data-target="#mymodal" id="update" class="btn btn-primary fa fa-pencil" aria-hidden="true"></button></td>
+            <td> <button  data-event = "delete" action="/record" type="button" id="delete-button" class="btn btn-danger fa fa-trash" aria-hidden="true"></button></td>
+
+        </tr>
+        <%}%>
+</tbody>
