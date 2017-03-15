@@ -57,19 +57,24 @@ app.put('/update', (req, res) => {
         telephone: req.body.telephone,
         gridRadios: req.body.gridRadios
     }
-    console.log(change.gridRadios);
     db.collection('record', (err, collection) => {
         collection.updateOne({
             "_id": objectMo(id)
         }, {
             $set: change
         }, function(err, r) {
-            db.close();
+            // db.close();
         });
 
     })
 });
 
+//delete
 app.delete("/delete", (req, res) => {
-    db.collection('record', ())
+    db.collection('record', (err,collection)=>{
+      collection.remove({"_id": objectMo(req.body._id)})
+        .then(() => res.redirect('/'))
+        .catch(err => console.error(err));
+
+    })
 })
